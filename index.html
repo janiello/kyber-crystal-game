@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title>Crystal Collector</title>
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body>
+        <div id="header">
+            <h1>Crystal Collector!</h1>
+        </div>
+        <div id="overview">
+            <p>You will be given a random number at the start of the game.</p>
+            <p>There are four crystals below. By clicking on a crystal, you will add a specific amount of points to your total score.</p>
+            <p>You win the game by matching your total score to the random number. You lose the game if your total score goes above the random number.</p>
+            <p>The value of each crystal is hidden until you click on it.</p>
+            <p>Each time the game starts, the values of each crystal will change.</p>
+        </div>
+        <div id="randomNumber"></div>
+        <div id="win-lose">
+            <p id="wins">Wins: </p>
+            <p id="losses">Losses: </p>
+        </div>
+        <div id="crystals">
+            <div id="red-crystal"><img src="assets/images/Red Kyber Crystal.png" alt="red-kyber-crystal"></div>
+            <div id="blue-crystal"><img src="assets/images/Blue Kyber Crystal.jpg" alt="blue-kyber-crystal"></div>
+            <div id="green-crystal"><img src="assets/images/Green Kyber Crystal.jpg" alt="green-kyber-crystal"></div>
+            <div id="yellow-crystal"><img src="assets/images/Yellow Kyber Crystal.jpg" alt="yellow-kyber-crystal"></div>
+        </div>
+        <div id="score-message">
+            Your total score is: 
+        </div>
+        <div id="score"></div>
+        <script src="assets/javascript/game.js"></script>
+    </body>
+</html>
