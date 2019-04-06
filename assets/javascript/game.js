@@ -1,8 +1,10 @@
 
-// Define variables.
+// Define global variables.
 var targetNumber = Math.round(Math.random() * 50) + 50;
 var counter = 0;
-var crystalValues = [9, 6, 2, 5]
+var crystalValues = [9, 6, 2, 5];
+var wins = 1;
+var losses = 1;
 
 // Generate the targetNumber for the user to guess, which will be displayed in the "target-number" div.
 $("#target-number").text(targetNumber);
@@ -29,9 +31,25 @@ for (var c = 0; c < crystalValues.length; c++) {
     yellow.attr("data-crystalValue", crystalValues[c]);
 }
 
+// Create an on-click function that cumulatively adds the value of any crystal clicked to the "score" div.
 $(".crystal-image").on("click", function() {
     var crystalValue = ($(this).attr("data-crystalValue"));
     crystalValue = parseInt(crystalValue);
     counter += crystalValue;
     $("#score").text(counter);
+    
+    // Show alerts that let you know wether you win or lose. Add wins and losses to their appropriate divs.
+    if (counter === targetNumber) {
+        alert("Winner, winner, chicken dinner!");
+        $("#wins").text(wins++);
+    }
+    else if (counter >= targetNumber) {
+        alert("Lehoo... zeherrrr.");
+        $("#losses").text(losses++);
+    }
+    
+    // Ask the user if they want to start a new game.
+
+
+        // Create a stop function that renders all clicks and functions useless.
 });
