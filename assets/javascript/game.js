@@ -9,7 +9,7 @@ var losses = 1;
 // Generate the targetNumber for the user to guess, which will be displayed in the "target-number" div.
 $("#target-number").text(targetNumber);
     
-// I need a for loop that will assign a random number from the array above to each crystal.
+// I need a for loop that will assign a random number from the array above to each crystal. ASK ABOUT THIS!!!!!!!!!!!!!!!!!!!!!!
 for (var c = 0; c < crystalValues.length; c++) {
     var red = $("#red-crystal");
     red.addClass("crystal-image");
