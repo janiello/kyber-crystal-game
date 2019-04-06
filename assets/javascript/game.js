@@ -1,4 +1,3 @@
-
 // Define global variables.
 var targetNumber = Math.round(Math.random() * 50) + 50;
 var counter = 0;
@@ -38,18 +37,27 @@ $(".crystal-image").on("click", function() {
     counter += crystalValue;
     $("#score").text(counter);
     
-    // Show alerts that let you know wether you win or lose. Add wins and losses to their appropriate divs.
+    // Show alerts that let you know wether you win or lose.
     if (counter === targetNumber) {
         alert("Winner, winner, chicken dinner!");
+        // Add wins and losses to their appropriate divs.
         $("#wins").text(wins++);
+        // Ask the user if they want to start a new game.
+        confirm("New game?");
+        // If user clicks "OK", a new number is generated... 
+        
+
+        // Score is set to 0...
+
+        
+        // And crystals obtain new values.
+
     }
     else if (counter >= targetNumber) {
         alert("Lehoo... zeherrrr.");
         $("#losses").text(losses++);
+        confirm("New game?");
     }
     
-    // Ask the user if they want to start a new game.
-
-
-        // Create a stop function that renders all clicks and functions useless.
+    // Create a stop function that renders all clicks and functions useless.
 });
