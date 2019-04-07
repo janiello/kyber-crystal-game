@@ -8,26 +8,26 @@ var losses = 1;
 // Generate the targetNumber for the user to guess, which will be displayed in the "target-number" div.
 $("#target-number").text(targetNumber);
     
-// I need a for loop that will assign a random number from the array above to each crystal. ASK ABOUT THIS!!!!!!!!!!!!!!!!!!!!!!
+// I need a for loop that will assign a random number from the array above to each crystal.
 for (var c = 0; c < crystalValues.length; c++) {
     var red = $("#red-crystal");
     red.addClass("crystal-image");
-    red.attr("data-crystalValue", crystalValues[c]);
+    red.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
 }
 for (var c = 0; c < crystalValues.length; c++) {
     var blue = $("#blue-crystal");
     blue.addClass("crystal-image");
-    blue.attr("data-crystalValue", crystalValues[c]);
+    blue.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
 }
 for (var c = 0; c < crystalValues.length; c++) {
     var green = $("#green-crystal");
     green.addClass("crystal-image");
-    green.attr("data-crystalValue", crystalValues[c]);
+    green.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
 }
 for (var c = 0; c < crystalValues.length; c++) {
     var yellow = $("#yellow-crystal");
     yellow.addClass("crystal-image");
-    yellow.attr("data-crystalValue", crystalValues[c]);
+    yellow.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
 }
 
 // Create an on-click function that cumulatively adds the value of any crystal clicked to the "score" div.
