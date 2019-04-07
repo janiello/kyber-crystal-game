@@ -44,20 +44,40 @@ $(".crystal-image").on("click", function() {
         $("#wins").text(wins++);
         // Ask the user if they want to start a new game.
         confirm("New game?");
-        // If user clicks "OK", a new number is generated... 
-        
-
-        // Score is set to 0...
-
-        
-        // And crystals obtain new values.
-
+        // If user clicks "OK", a new targetNumber is generated...
+        if (confirm = true) {
+            $("#target-number").text(targetNumber);
+            // Score is set to 0...
+            counter = 0;
+            // And crystals obtain new values.
+            for (var c = 0; c < crystalValues.length; c++) {
+                var red = $("#red-crystal");
+                red.addClass("crystal-image");
+                red.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+            }
+            for (var c = 0; c < crystalValues.length; c++) {
+                var blue = $("#blue-crystal");
+                blue.addClass("crystal-image");
+                blue.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+            }
+            for (var c = 0; c < crystalValues.length; c++) {
+                var green = $("#green-crystal");
+                green.addClass("crystal-image");
+                green.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+            }
+            for (var c = 0; c < crystalValues.length; c++) {
+                var yellow = $("#yellow-crystal");
+                yellow.addClass("crystal-image");
+                yellow.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+            }
+            // If user clicks "Cancel"...
+            
+            // Create a stop function that renders all clicks and functions useless.
+        }
     }
     else if (counter >= targetNumber) {
         alert("Lehoo... zeherrrr.");
         $("#losses").text(losses++);
         confirm("New game?");
     }
-    
-    // Create a stop function that renders all clicks and functions useless.
 });
