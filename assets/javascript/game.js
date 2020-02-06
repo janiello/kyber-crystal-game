@@ -20,21 +20,33 @@ green.addClass("crystal-image");
 yellow.addClass("crystal-image");
 
 // Generate the targetNumber for the user to guess, which will be displayed in the "target-number" div
-$("#target-number").text(targetNumber);
+newTarget = function() {
+    targetNumber = Math.floor(Math.random() * 50) + 51;
+    $("#target-number").text(targetNumber);
+};
+
+// I need a function that loops through the crystalValues array and assigns a random unique value to each crystal
+crystalValue = function() {
+    for (var c = 0; c < crystalValues.length; c++) {
+        red.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+    }
+    for (var c = 0; c < crystalValues.length; c++) {
+        blue.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+    }
+    for (var c = 0; c < crystalValues.length; c++) {
+        green.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+    }
+    for (var c = 0; c < crystalValues.length; c++) {
+        yellow.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+    }
+};
+
+// When the document is ready, run the newTarget and crystalValue function and allow the user to start clicking crystals
+$(document).ready(function() {
+    newTarget();
+    crystalValue();
+});
     
-// I need a for loop that will assign a random number from the array above to each crystal
-for (var c = 0; c < crystalValues.length; c++) {
-    red.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-}
-for (var c = 0; c < crystalValues.length; c++) {
-    blue.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-}
-for (var c = 0; c < crystalValues.length; c++) {
-    green.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-}
-for (var c = 0; c < crystalValues.length; c++) {
-    yellow.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-}
 
 // Create an on-click function that cumulatively adds the value of any crystal clicked to the "score" div
 $(".crystal-image").on("click", function() {
