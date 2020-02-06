@@ -45,69 +45,53 @@ crystalValue = function() {
 $(document).ready(function() {
     newTarget();
     crystalValue();
-});
-    
-
-// Create an on-click function that cumulatively adds the value of any crystal clicked to the "score" div
-$(".crystal-image").on("click", function() {
-    var crystalValue = ($(this).attr("data-crystalValue"));
-    crystalValue = parseInt(crystalValue);
-    counter += crystalValue;
-    $("#score").text(counter);
-    
-    // Show alerts that let you know wether you win or lose
-    if (counter === targetNumber) {
-        alert("Winner, winner, chicken dinner!");
-        // Add wins and losses to their appropriate divs
-        wins++;
-        $("#wins").text(wins);
-        // Ask the user if they want to start a new game
-        confirm("New game?");
-        // If user clicks "OK", a new targetNumber is generated...
-        if (confirm) {
-            $("#target-number").text(targetNumber);
-            // Score is set to 0...
-            counter = 0;
-            // And crystals obtain new values
-            for (var c = 0; c < crystalValues.length; c++) {
-                red.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-            }
-            for (var c = 0; c < crystalValues.length; c++) {
-                blue.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-            }
-            for (var c = 0; c < crystalValues.length; c++) {
-                green.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-            }
-            for (var c = 0; c < crystalValues.length; c++) {
-                yellow.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-            }
-            // If user clicks "Cancel"...
-            
-            // Create a stop function that renders all clicks and functions useless
-        }
-    }
-    else if (counter >= targetNumber) {
-        alert("Lehoo... zeherrrr.");
-        losses++;
-        $("#losses").text(losses);
-        confirm("New game?");
-        if (confirm) {
-            $("#target-number").text(targetNumber);
-            // Score is set to 0...
-            counter = 0;
-            // And crystals obtain new values
-            for (var c = 0; c < crystalValues.length; c++) {
-                red.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-            }
-            for (var c = 0; c < crystalValues.length; c++) {
-                blue.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-            }
-            for (var c = 0; c < crystalValues.length; c++) {
-                green.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-            }
-            for (var c = 0; c < crystalValues.length; c++) {
-                yellow.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+    $("#wins").text(wins);
+    $("#losses").text(losses);
+    // Create an on-click function that cumulatively adds the value of any crystal clicked to the "score" div
+    $(".crystal-image").on("click", function() {
+        var value = ($(this).attr("data-crystalValue"));
+        value = parseInt(value);
+        counter += value;
+        $("#score").text(counter);
+        // If the user's math is good enough
+        if (counter === targetNumber) {
+            // Add wins and losses to their appropriate divs
+            wins++;
+            $("#wins").text(wins);
+            // Show alerts that let you know wether you win or lose
+            alert("Winner, winner, chicken dinner!");
+            // Ask the user if they want to start a new game
+            confirm("New game?");
+            // If user clicks "OK", a new targetNumber is generated...
+            if (confirm) {
+                // Empty the score div
+                $("#score").text("");
+                // Score is set to 0...
+                counter = 0;
+                // Generate a new random number
+                newTarget();
+                // And crystals obtain new values
+                crystalValue();
+                // If user clicks "Cancel"...
+                
+                // Create a stop function that renders all clicks and functions useless
             }
         }
-    }
+        else if (counter >= targetNumber) {
+            losses++;
+            $("#losses").text(losses);
+            alert("Lehoo... zeherrrr.");
+            confirm("New game?");
+            if (confirm) {
+                // Empty the score div
+                $("#score").text("");
+                // Score is set to 0...
+                counter = 0;
+                // Generate a new random number
+                newTarget();
+                // And crystals obtain new values
+                crystalValue();
+            }
+        }
+    });
 });
