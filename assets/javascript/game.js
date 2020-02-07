@@ -27,17 +27,26 @@ newTarget = function() {
 
 // I need a function that loops through the crystalValues array and assigns a random unique value to each crystal
 crystalValue = function() {
-    for (var c = 0; c < crystalValues.length; c++) {
-        red.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-        blue.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-        green.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-        yellow.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-    }
+    $(".crystal-image").each(function() {
+        $(this).attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)])
+    });
+    // Log out the value of each crystal to test and for developer reference
     console.log(red.attr("data-crystalValue"));
     console.log(blue.attr("data-crystalValue"));
     console.log(green.attr("data-crystalValue"));
     console.log(yellow.attr("data-crystalValue"));
+    // Alternate trials to code value assignment (less clean, more repetitive)
     /*for (var c = 0; c < crystalValues.length; c++) {
+        red.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+        blue.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+        green.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+        yellow.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+    }*/
+
+    /*for (var c = 0; c < crystalValues.length; c++) {
+        red.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+    }
+    for (var c = 0; c < crystalValues.length; c++) {
         blue.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
     }
     for (var c = 0; c < crystalValues.length; c++) {
@@ -48,7 +57,7 @@ crystalValue = function() {
     }*/
 };
 
-// When the document is ready, run the newTarget and crystalValue function and allow the user to start clicking crystals
+// When the document is ready, run the newTarget and crystalValue function to render info and allow the user to start clicking crystals
 $(document).ready(function() {
     newTarget();
     crystalValue();
