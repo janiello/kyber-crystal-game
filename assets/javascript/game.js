@@ -35,27 +35,28 @@ crystalValue = function() {
     console.log(blue.attr("data-crystalValue"));
     console.log(green.attr("data-crystalValue"));
     console.log(yellow.attr("data-crystalValue"));
-    // Alternate trials to code value assignment (less clean, more repetitive)
-    /*for (var c = 0; c < crystalValues.length; c++) {
-        red.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-        blue.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-        green.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-        yellow.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-    }*/
-
-    /*for (var c = 0; c < crystalValues.length; c++) {
-        red.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-    }
-    for (var c = 0; c < crystalValues.length; c++) {
-        blue.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-    }
-    for (var c = 0; c < crystalValues.length; c++) {
-        green.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-    }
-    for (var c = 0; c < crystalValues.length; c++) {
-        yellow.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-    }*/
 };
+
+// Alternate trials to code value assignment (less clean, more repetitive)
+/*for (var c = 0; c < crystalValues.length; c++) {
+    red.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+    blue.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+    green.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+    yellow.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+}*/
+
+/*for (var c = 0; c < crystalValues.length; c++) {
+    red.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+}
+for (var c = 0; c < crystalValues.length; c++) {
+    blue.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+}
+for (var c = 0; c < crystalValues.length; c++) {
+    green.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+}
+for (var c = 0; c < crystalValues.length; c++) {
+    yellow.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+}*/
 
 // When the document is ready, run the newTarget and crystalValue function to render info and allow the user to start clicking crystals
 $(document).ready(function() {
