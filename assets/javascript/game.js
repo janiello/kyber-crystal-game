@@ -29,8 +29,15 @@ newTarget = function() {
 crystalValue = function() {
     for (var c = 0; c < crystalValues.length; c++) {
         red.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+        blue.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+        green.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
+        yellow.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
     }
-    for (var c = 0; c < crystalValues.length; c++) {
+    console.log(red.attr("data-crystalValue"));
+    console.log(blue.attr("data-crystalValue"));
+    console.log(green.attr("data-crystalValue"));
+    console.log(yellow.attr("data-crystalValue"));
+    /*for (var c = 0; c < crystalValues.length; c++) {
         blue.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
     }
     for (var c = 0; c < crystalValues.length; c++) {
@@ -38,7 +45,7 @@ crystalValue = function() {
     }
     for (var c = 0; c < crystalValues.length; c++) {
         yellow.attr("data-crystalValue", crystalValues[Math.floor(Math.random() * crystalValues.length)]);
-    }
+    }*/
 };
 
 // When the document is ready, run the newTarget and crystalValue function and allow the user to start clicking crystals
@@ -55,14 +62,14 @@ $(document).ready(function() {
         $("#score").text(counter);
         // If the user's math is good enough
         if (counter === targetNumber) {
-            // Add wins and losses to their appropriate divs
+            // Increase wins and render it to the page
             wins++;
             $("#wins").text(wins);
-            // Show alerts that let you know wether you win or lose
+            // Alert the user they've won
             alert("Winner, winner, chicken dinner!");
             // Ask the user if they want to start a new game
             confirm("New game?");
-            // If user clicks "OK", a new targetNumber is generated...
+            // If user clicks "OK"...
             if (confirm) {
                 // Empty the score div
                 $("#score").text("");
@@ -72,16 +79,20 @@ $(document).ready(function() {
                 newTarget();
                 // And crystals obtain new values
                 crystalValue();
-                // If user clicks "Cancel"...
-                
-                // Create a stop function that renders all clicks and functions useless
             }
+            // If user clicks "Cancel"...
+            
+            // Create a stop function that renders all clicks and functions useless
         }
         else if (counter >= targetNumber) {
+            // Increase losses and render it to the page
             losses++;
             $("#losses").text(losses);
+            // Alert the user they've lost
             alert("Lehoo... zeherrrr.");
+            // Ask if they'd like to start a new game
             confirm("New game?");
+            // If user clicks "OK"...
             if (confirm) {
                 // Empty the score div
                 $("#score").text("");
@@ -92,6 +103,9 @@ $(document).ready(function() {
                 // And crystals obtain new values
                 crystalValue();
             }
+            // If user clicks "Cancel"...
+                
+            // Create a stop function that renders all clicks and functions useless
         }
     });
 });
